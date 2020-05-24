@@ -1,17 +1,12 @@
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('posts', {
+    return queryInterface.createTable('use_ratings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
-      },
-      title: {
-        type: Sequelize.STRING,
-      },
-      content: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -20,31 +15,27 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
-      user_id: {
+      post_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'users', key: 'id' },
+        references: { model: 'posts', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
       },
-      discipline_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'disciplines', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-        allowNull: true,
+      rating: {
+        type: Sequelize.INTEGER
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('posts');
+    return queryInterface.dropTable('use_ratings');
   }
 };

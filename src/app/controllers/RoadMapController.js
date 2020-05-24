@@ -1,9 +1,9 @@
 import * as Yup from 'yup';
 
-import Post from '../models/Post';
+import RoadMap from '../models/RoadMap';
 
 
- class PostController {
+ class RoadMapController {
    async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),

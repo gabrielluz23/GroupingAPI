@@ -8,9 +8,22 @@ import Discipline from '../app/models/Discipline';
 import Post from '../app/models/Post';
 import RoadMap from '../app/models/RoadMap';
 import PostRoadMap from '../app/models/PostRoadMap';
+import PostRating from '../app/models/PostRating';
+import UserRating from '../app/models/UserRating';
 
 
-const models = [User, File, Role, UserDiscipline, Discipline,PostRoadMap,Post,RoadMap];
+const models = [
+  User, 
+  File, 
+  Role, 
+  UserDiscipline, 
+  Discipline, 
+  PostRoadMap, 
+  Post, 
+  RoadMap,
+  PostRating,
+  UserRating
+];
 // This is where we make our database connection
 class Database {
   constructor() {

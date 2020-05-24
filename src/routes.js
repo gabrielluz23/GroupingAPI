@@ -13,12 +13,16 @@ import authMiddleware from './app/middlewares/auth';
 const routes = new Router();
 const upload = multer(multerConfig);
 
-routes.post('/posts',PostController.store);
 routes.post('/users', UserController.store);
 routes.post('/session', SessionController.store);
 routes.use(authMiddleware);
 routes.put('/users', UserController.update);
-routes.get('/provider', ProviderController.index);
 routes.post('/files', upload.single('file'), FileController.store);
+
+routes.get('/provider', ProviderController.index);
+
+routes.post('/posts',PostController.store);
+routes.get('/posts/:category',PostController.index);
+routes.get('/posts/info/:postId',PostController.indexId);
 
 export default routes;

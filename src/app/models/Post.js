@@ -29,6 +29,10 @@ class  Post extends Model {
       through: models.PostRoadMap,
       foreignKey: 'post_id', as: 'post'
     });
+    this.belongsToMany(models.User, {
+      through: models.UserRating,
+      foreignKey: 'post_id', as: 'postRating'
+    });
   }
 
   // this is where we do the relations datas like one-to-one one-to-many many-to-many

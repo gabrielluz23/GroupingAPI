@@ -36,6 +36,10 @@ class User extends Model {
       through: models.UserDiscipline,
       foreignKey: 'user_id', as: 'user'
     });
+    this.belongsToMany(models.Post, {
+      through: models.UserRating,
+      foreignKey: 'user_id', as: 'userRating'
+    });
   }
 
   // is a function that checks if the parameter is the same as the user password

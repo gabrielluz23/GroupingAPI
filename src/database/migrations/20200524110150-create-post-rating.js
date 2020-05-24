@@ -1,11 +1,12 @@
+'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('post_roadmaps', {
+    return queryInterface.createTable('post_ratings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       post_id: {
         type: Sequelize.INTEGER,
@@ -14,24 +15,20 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
-      roadmap_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'roadmaps', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-        allowNull: true,
+      rating: {
+        type: Sequelize.INTEGER
       },
-      created_at: {
+      createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
-      updated_at: {
+      updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-      },
+        type: Sequelize.DATE
+      }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('post_roadmaps');
+    return queryInterface.dropTable('post_ratings');
   }
 };
