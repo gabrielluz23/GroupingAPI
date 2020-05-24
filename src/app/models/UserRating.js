@@ -8,7 +8,6 @@ class  UserRating extends Model {
       {
         user_id: Sequelize.INTEGER,
         post_id: Sequelize.INTEGER,
-        rating: Sequelize.INTEGER,
       },
       {
         sequelize,

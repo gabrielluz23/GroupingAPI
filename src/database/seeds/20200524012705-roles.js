@@ -11,7 +11,6 @@ module.exports = {
         name: 'Premium',
         created_at: new Date(),
         updated_at: new Date()
-       
       }
     ], {}),
 

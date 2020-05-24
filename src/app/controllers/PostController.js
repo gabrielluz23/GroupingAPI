@@ -33,7 +33,7 @@ import PostRoadMap from '../models/PostRoadMap';
       tag: tag
     });
     const rating = await PostRating.create({
-      post_id: req.userId,
+      post_id: post.id,
     })
      return res.json({
       post,
@@ -87,6 +87,53 @@ import PostRoadMap from '../models/PostRoadMap';
       const checkPost = await Post.findOne({
         where: {
           id: post_id,
+        }
+      })
+
+      if(!checkPost){
+        return res.status(401).json({error: { message: "Post inválido"}})
+      }
+
+      const checkRoadMap = await RoadMap.findOne({
+        where: {
+          id: roadmap_id,
+          user_id: req.userId
+        }
+      })
+
+      if(!checkRoadMap){
+        return res.status(401).json({error: { message: "Trilha inválida"}})
+      }
+      const checkExistPost = await PostRoadMap.findOne({
+        where: {
+          roadmap_id: roadmap_id,
+          post_id: post_id
+        }
+      })
+      if(checkExistPost){
+        return res.status(400).json({error: {message: "Não é possível adicionar a mesma publicação na trilha"}})
+      }
+       const roadmap = await PostRoadMap.create({
+        post_id: post_id,
+        roadmap_id: roadmap_id,
+      });
+
+       return res.json(roadmap);
+    }
+
+    async addLike(req,res){
+      const schema = Yup.object().shape({
+        post_id: Yup.number().required(),
+        roadmap_id: Yup.number().required(),
+      });
+      if (!(await schema.isValid(req.body))) {
+        return res.status(400).json({ error: 'Validation fails' });
+      }
+      const {post_id, roadmap_id} = req.body;
+      
+      const checkPost = await Post.findOne({
+        where: {
+          id: post_id,
           user_id: req.userId
         }
       })
@@ -121,6 +168,7 @@ import PostRoadMap from '../models/PostRoadMap';
 
        return res.json(roadmap);
     }
+    
 }
 
  export default new PostController();
