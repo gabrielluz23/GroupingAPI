@@ -132,6 +132,16 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date()
         },
+        {
+          title: "[TRABALHO] 2ª Revolução Industrial",
+          content: "Minha professora pediu que eu entregasse o trabalho no Groping em forma de artigo, adorei a ideia! Sou estudante da Escola Exemplo do Jd. São Manoel. Segue o resultado da minha pesquisa: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in. Facilisi etiam dignissim diam quis enim lobortis. Odio ut enim blandit volutpat. Tellus elementum sagittis vitae et leo duis. Mi bibendum neque egestas congue quisque egestas diam in. Augue neque gravida in fermentum et sollicitudin ac. Consequat id porta nibh venenatis cras. Etiam erat velit scelerisque in dictum non. Amet porttitor eget dolor morbi non arcu risus quis.",
+          user_id: 1,
+          discipline_id: 1,
+          created_at: new Date(),
+          updated_at: new Date()
+        },
+        
+
       ],
       {}
     );

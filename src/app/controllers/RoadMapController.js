@@ -10,17 +10,19 @@ import Post from '../models/Post';
    async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required(),
+      description: Yup.string().required(),
       discipline_id: Yup.number().required()
     });
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation fails' });
     }
-    const {discipline_id,title} = req.body;
+    const {discipline_id,title,description} = req.body;
 
      const roadmap = await RoadMap.create({
       user_id: req.userId,
       discipline_id: discipline_id,
       title: title,
+      description:description
     });
      return res.json(roadmap);
    }
@@ -43,7 +45,7 @@ import Post from '../models/Post';
    async indexId(req,res){
      const {roadmapId} = req.params
      const roadmap = await RoadMap.findByPk(roadmapId, {
-       attributes: ['id', 'title', 'user_id'],
+       attributes: ['id', 'title', 'user_id','description'],
        include: [
         { model: Discipline, as: 'discipline', attributes: ['id', 'name']},
         { model: User, as: 'user', attributes: ['id', 'name']},

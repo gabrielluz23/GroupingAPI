@@ -7,6 +7,7 @@ class  RoadMap extends Model {
     super.init(
       {
         title: Sequelize.STRING,
+        description: Sequelize.STRING
       },
       {
         sequelize,
