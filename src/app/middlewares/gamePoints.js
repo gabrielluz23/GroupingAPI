@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import UserDiscipline from '../models/UserDiscipline';
 import Post from '../models/Post';
+import RoadMap from '../models/RoadMap';
 
 export default async (req, res, next) => {
   try {
@@ -22,13 +23,19 @@ export default async (req, res, next) => {
           const {post_id} = req.body;
           const {discipline_id} = await Post.findByPk(post_id);
           disciplineId = discipline_id;
-          exp = 0.02;
+          exp = 0.01;
         }
         if(rote === "/roadmaps" && method === "POST"){
           disciplineId = req.body.discipline_id;
           exp = 0.03;
         }
-        if(rote === "/roadmaps" && method === "POST"){
+        if(rote === "/posts/addRoadMap" && method === "POST"){
+          const {post_id} = req.body;
+          const {discipline_id} = await RoadMap.findByPk(post_id);
+          disciplineId = discipline_id;
+          exp = 0.02;
+        }
+        if(rote === "/groups" && method === "POST"){
           disciplineId = req.body.discipline_id;
           exp = 0.03;
         }

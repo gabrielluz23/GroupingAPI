@@ -25,6 +25,7 @@ routes.post('/session', SessionController.store);
 routes.use(authMiddleware);
 routes.use(gameMiddleware);
 
+routes.get('/users', UserController.index);
 routes.put('/users', UserController.update);
 routes.post('/files', upload.single('file'), FileController.store);
 

@@ -34,7 +34,7 @@ class User extends Model {
     this.belongsTo(models.Role, { foreignKey: 'role_id', as: 'role' });
     this.belongsToMany(models.Discipline, {
       through: models.UserDiscipline,
-      foreignKey: 'user_id', as: 'user'
+      foreignKey: 'user_id', as: 'userExp'
     });
     this.belongsToMany(models.Post, {
       through: models.UserRating,

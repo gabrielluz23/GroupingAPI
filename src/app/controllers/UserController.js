@@ -75,6 +75,14 @@ class UserController {
 
     return res.json({ id, name, email, provider, avatar_id });
   }
+  async index(req, res) {
+    const user = await User.findByPk(req.userId,{ include: [
+      { model: Discipline, 
+        as: 'userExp', attributes: ['id', 'name',]
+      }
+    ]})
+    return res.json(user);
+  }
 }
 
 export default new UserController();

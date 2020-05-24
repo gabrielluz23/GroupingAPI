@@ -48,7 +48,7 @@ import Post from '../models/Post';
         { model: Discipline, as: 'discipline', attributes: ['id', 'name']},
         { model: User, as: 'user', attributes: ['id', 'name']},
         { model: Post, 
-          as: 'roadmap', 
+          as: 'posts', 
           attributes: ['id', 'title'], 
           include: [{ model: User, as: 'userPost', attributes: ['id', 'name']}]
         }
