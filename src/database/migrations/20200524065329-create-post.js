@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       content: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       tag: {
         type: Sequelize.STRING,

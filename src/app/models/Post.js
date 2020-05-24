@@ -7,7 +7,7 @@ class  Post extends Model {
     super.init(
       {
         title: Sequelize.STRING,
-        content: Sequelize.STRING,
+        content: Sequelize.TEXT,
         tag: Sequelize.STRING,
       },
       {
