@@ -20,7 +20,6 @@ module.exports = {
       references: { model: 'disciplines', key: 'id' },
       onUpdate: 'CASCADE',
       onDelete: 'SET NULL',
-      defaultValue: 1,
       allowNull: true,
     });
   },

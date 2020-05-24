@@ -1,20 +1,12 @@
-// import Post from '../models/Post';
-// import User from '../models/User';
-// import Discipline from '../models/Discipline';
+ import Post from '../models/Post';
+ import User from '../models/User';
+ import Discipline from '../models/Discipline';
 
-// class PostController {
-//   async store(req, res) {
-//     const {discipline_id,user_id,title,content } = req.Body;
-//     const user= User.findBy('id',user_id);
-//     const discipline = Discipline.findBy('id',discipline_id);
-//     const post = await Post.create({
-//      discipline_id,
-//      user_id,
-//      title,
-//      content,
-//     });
-//     return res.json(post);
-//   }
-// }
+ class PostController {
+   async store(req, res) {
+     const {discipline_id,user_id,title,content } = await Post.create(req.Body);
+     return res.json(req.body);
+   }
+ }
 
-// export default new PostController();
+ export default new PostController();

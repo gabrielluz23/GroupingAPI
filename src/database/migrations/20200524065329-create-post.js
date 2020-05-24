@@ -18,7 +18,8 @@ module.exports = {
         type: Sequelize.DECIMAL
       },
       rating: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.DECIMAL,
+        defaultValue: 0
       },
       created_at: {
         allowNull: false,
