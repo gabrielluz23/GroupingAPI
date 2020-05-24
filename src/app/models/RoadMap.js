@@ -24,7 +24,7 @@ class  RoadMap extends Model {
   this.belongsTo(models.Discipline, { foreignKey: 'discipline_id', as: 'discipline' });
   this.belongsToMany(models.Post, {
     through: models.PostRoadMap,
-    foreignKey: 'roadmap_id', as: 'roadmap'
+    foreignKey: 'roadmap_id', as: 'posts'
   });
   }
   // this is where we do the relations datas like one-to-one one-to-many many-to-many
