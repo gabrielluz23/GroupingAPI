@@ -8,12 +8,8 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      title: {
         type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       },
       discipline_id : {
         type: Sequelize.INTEGER,
@@ -22,7 +18,19 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
-      updatedAt: {
+      user_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'users', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
+      created_at: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+     
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }

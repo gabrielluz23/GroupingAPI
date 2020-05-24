@@ -11,7 +11,7 @@ import PostRoadMap from '../app/models/PostRoadMap';
 import PostRating from '../app/models/PostRating';
 import UserRating from '../app/models/UserRating';
 import Group from '../app/models/Group';
-import UserGroup from '../app/models/UserGroup';
+import MensageGroup from '../app/models/MensageGroup';
 
 const models = [
   User, 
@@ -25,7 +25,7 @@ const models = [
   PostRating,
   UserRating,
   Group,
-  UserGroup
+  MensageGroup
 ];
 // This is where we make our database connection
 class Database {

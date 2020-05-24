@@ -2,12 +2,11 @@ import { Model, Sequelize } from 'sequelize';
 import bcrypt from 'bcryptjs';
 
 // Here is the model, where we set what the user/client must to send by body request
-class  UserGroup extends Model {
+class  MensageGroup extends Model {
   static init(sequelize) {
     super.init(
       {
-        user_id: Sequelize.INTEGER,
-        group_id: Sequelize.INTEGER, 
+        mensage:Sequelize.STRING,
       },
       {
         sequelize,
@@ -20,9 +19,17 @@ class  UserGroup extends Model {
     // This return will bring the model that is running
     return this;
   }
-  static associate(models) {}
+
+  static associate(models) { 
+    this.belongsTo(models.Group, {
+      foreignKey: 'group_id', as: 'group'
+    });
+    this.belongsTo(models.User, {
+      foreignKey: 'user_id', as: 'user'
+    });
+  }
   // this is where we do the relations datas like one-to-one one-to-many many-to-many
  
 }
 
-export default UserGroup;
+export default MensageGroup;

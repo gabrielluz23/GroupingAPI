@@ -7,7 +7,6 @@ class  Group extends Model {
     super.init(
       {
         title: Sequelize.STRING,
-        mensage:Sequelize.STRING,
       },
       {
         sequelize,
@@ -23,9 +22,8 @@ class  Group extends Model {
 
   static associate(models) { 
     this.belongsTo(models.Discipline, { foreignKey: 'discipline_id', as: 'discipline' });
-    this.belongsToMany(models.User, {
-      through: models.UserGroup,
-      foreignKey: 'group_id', as: 'group'
+    this.belongsTo(models.User, {
+      foreignKey: 'user_id', as: 'user'
     });
   }
   // this is where we do the relations datas like one-to-one one-to-many many-to-many

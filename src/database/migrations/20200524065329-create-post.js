@@ -13,12 +13,8 @@ module.exports = {
       content: {
         type: Sequelize.STRING,
       },
-      user_id: {
-        type: Sequelize.INTEGER,
-        references: { model: 'users', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
-        allowNull: true,
+      tag: {
+        type: Sequelize.STRING,
       },
       user_id: {
         type: Sequelize.INTEGER,

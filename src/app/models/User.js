@@ -41,10 +41,6 @@ class User extends Model {
       foreignKey: 'user_id', as: 'userRating'
     });
     
-      this.belongsToMany(models.Group, {
-        through: models.UserGroup,
-        foreignKey: 'user_id', as: 'userGroup'
-      });
     
   }
 
