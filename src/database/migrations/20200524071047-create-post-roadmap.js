@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('post_roadmaps', {
+    return queryInterface.createTable('post_road_maps', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -16,7 +16,7 @@ module.exports = {
       },
       roadmap_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'roadmaps', key: 'id' },
+        references: { model: 'road_maps', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true,
@@ -32,6 +32,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('post_roadmaps');
+    return queryInterface.dropTable('post_road_maps');
   }
 };

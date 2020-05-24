@@ -8,6 +8,8 @@ import FileController from './app/controllers/FileController';
 import ProviderController from './app/controllers/ProviderController';
 import PostController from './app/controllers/PostController';
 import GroupController from './app/controllers/GroupController';
+import RoadMapController from './app/controllers/RoadMapController';
+
 import authMiddleware from './app/middlewares/auth';
 import MensageGroupController from './app/controllers/MensageGroupController';
 
@@ -29,5 +31,10 @@ routes.post('/groups',GroupController.store);
 routes.get('/groups/:category',GroupController.index);
 routes.post('/mensages',MensageGroupController.store);
 routes.get('/mensages/:groupId',MensageGroupController.index);
+routes.post('/posts/addRoadMap',PostController.addToRoad);
+
+routes.post('/roadmaps',RoadMapController.store);
+routes.get('/roadmaps/:category',RoadMapController.index);
+routes.get('/roadmaps/info/:roadmapId',RoadMapController.indexId);
 
 export default routes;

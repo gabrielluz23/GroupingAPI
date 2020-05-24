@@ -20,7 +20,7 @@ class PostRating extends Model {
     return this;
   }
   static associate(models) {
-    this.belongsTo(models.Post, { foreignKey: 'post_id', as: 'post' });
+    this.belongsTo(models.Post, { foreignKey: 'post_id', as:'postRate'});
   }
   // this is where we do the relations datas like one-to-one one-to-many many-to-many
 }

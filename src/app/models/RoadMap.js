@@ -7,8 +7,6 @@ class  RoadMap extends Model {
     super.init(
       {
         title: Sequelize.STRING,
-        rating: Sequelize.DECIMAL
-       
       },
       {
         sequelize,
@@ -23,6 +21,7 @@ class  RoadMap extends Model {
   }
   static associate(models) { 
   this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+  this.belongsTo(models.Discipline, { foreignKey: 'discipline_id', as: 'discipline' });
   this.belongsToMany(models.Post, {
     through: models.PostRoadMap,
     foreignKey: 'roadmap_id', as: 'roadmap'

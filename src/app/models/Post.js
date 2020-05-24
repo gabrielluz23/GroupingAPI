@@ -8,8 +8,7 @@ class  Post extends Model {
       {
         title: Sequelize.STRING,
         content: Sequelize.STRING,
-        tag: Sequelize.DECIMAL,
-        rating:Sequelize.DECIMAL
+        tag: Sequelize.STRING,
       },
       {
         sequelize,
@@ -23,7 +22,7 @@ class  Post extends Model {
     return this;
   }
   static associate(models) { 
-    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'userPost' });
     this.belongsTo(models.Discipline, { foreignKey: 'discipline_id', as: 'discipline' });
     this.belongsToMany(models.RoadMap, {
       through: models.PostRoadMap,
@@ -33,6 +32,7 @@ class  Post extends Model {
       through: models.UserRating,
       foreignKey: 'post_id', as: 'postRating'
     });
+    this.hasOne(models.PostRating, {foreignKey: 'post_id', as: 'postRate'});
   }
 
   // this is where we do the relations datas like one-to-one one-to-many many-to-many

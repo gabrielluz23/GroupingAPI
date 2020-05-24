@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('roadmaps', {
+    return queryInterface.createTable('road_maps', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -10,6 +10,13 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING
+      },
+      discipline_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'disciplines', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -29,6 +36,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('roadmaps');
+    return queryInterface.dropTable('road_maps');
   }
 };
