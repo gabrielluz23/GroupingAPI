@@ -10,7 +10,8 @@ import RoadMap from '../app/models/RoadMap';
 import PostRoadMap from '../app/models/PostRoadMap';
 import PostRating from '../app/models/PostRating';
 import UserRating from '../app/models/UserRating';
-
+import Group from '../app/models/Group';
+import UserGroup from '../app/models/UserGroup';
 
 const models = [
   User, 
@@ -22,7 +23,9 @@ const models = [
   Post, 
   RoadMap,
   PostRating,
-  UserRating
+  UserRating,
+  Group,
+  UserGroup
 ];
 // This is where we make our database connection
 class Database {

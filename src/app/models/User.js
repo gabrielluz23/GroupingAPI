@@ -40,6 +40,12 @@ class User extends Model {
       through: models.UserRating,
       foreignKey: 'user_id', as: 'userRating'
     });
+    
+      this.belongsToMany(models.Group, {
+        through: models.UserGroup,
+        foreignKey: 'user_id', as: 'userGroup'
+      });
+    
   }
 
   // is a function that checks if the parameter is the same as the user password
